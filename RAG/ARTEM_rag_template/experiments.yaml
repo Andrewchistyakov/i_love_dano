@@ -1,0 +1,29 @@
+# experiments.yaml
+base_results_dir: eval_results
+
+experiments:
+  - name: vector_ce_top10
+    overrides:
+      retriever.type: vector
+      ranker.enabled: false
+      reranker.enabled: true
+      index.top_k: 10
+
+  - name: hybrid_ranker_mmr
+    overrides:
+      retriever.type: hybrid
+      ranker.enabled: true
+      reranker.enabled: false
+      index.top_k: 30
+      ranker.mmr_lambda: 0.5
+      ranker.selection_mode: fixed_k
+
+  - name: hybrid_ranker_threshold
+    overrides:
+      retriever.type: hybrid
+      ranker.enabled: true
+      reranker.enabled: false
+      index.top_k: 30
+      ranker.selection_mode: threshold
+      ranker.score_threshold: 0.1
+      ranker.mmr_lambda: 0.0

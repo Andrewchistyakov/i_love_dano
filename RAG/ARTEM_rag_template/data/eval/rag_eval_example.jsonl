@@ -1,0 +1,2 @@
+{"id": 1, "query": "О чём этот проект RAG?", "expected_answer": "Это проект Retrieval-Augmented Generation с индексом по локальным документам и оценкой через DeepEval.", "gold_context": []}
+{"id": 2, "query": "Какие типы ретриверов поддерживаются?", "expected_answer": "Поддерживаются векторный, BM25 и гибридный ретриверы.", "gold_context": []}

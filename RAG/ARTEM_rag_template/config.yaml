@@ -1,0 +1,52 @@
+embedding:
+  model_name: intfloat/multilingual-e5-large
+
+chunking:
+  type: token
+  max_tokens: 450
+  overlap_tokens: 90
+  tokenizer_model: intfloat/multilingual-e5-large
+
+index:
+  index_dir: storage/index
+  top_k: 5
+  vector_backend: faiss_hnsw
+  faiss_hnsw_m: 32
+
+retriever:
+  type: hybrid
+  hybrid_alpha: 0.5
+  n_candidates: 600
+
+llm:
+  provider: local
+  model: "Qwen/Qwen2.5-1.5B-Instruct"
+  temperature: 0.2
+  max_tokens: 512
+  base_url: null
+  api_key_env: ""        # не нужно
+  device: "mps"          # явно говорим: M1
+  dtype: "float32"       # если модель поддерживает; иначе можно float32
+
+reranker:
+  enabled: true
+  first_model_name: jinaai/jina-reranker-v2-base-multilingual   # 1-й
+  first_top_k: 300                                              # N_FIRST_RERANK
+  second_model_name: BAAI/bge-reranker-v2-m3                    # 2-й
+  final_top_k: 10
+
+ranker:
+  enabled: false
+  model_type: lgbm
+  model_path: storage/ranker/ranker_model.pkl
+  use_cross_encoder_feature: true
+  selection_mode: fixed_k
+  score_threshold: 0.0
+  dynamic_k_model_path: storage/ranker/dynamic_k_model.pkl
+  mmr_lambda: 0.5
+  mmr_top_k_candidates: 20
+
+eval:
+  dataset_path: data/eval/rag_eval_example.jsonl
+  results_dir: eval_results
+  eval_model: null
