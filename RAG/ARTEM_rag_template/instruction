@@ -1,0 +1,14 @@
+git clone https://github.com/TUT-NICHEGO-NET/templates.git
+cd templates/RAG/ARTEM_rag_template
+python -m venv venv
+source venv/bin/activate
+pip install - r requirements.txt
+python main.py build-index --docs-path data/docs
+python make_submission.py --config config.yaml --test-path data/competition/test_queries.json --out-path submission.csv
+
+
+
+Обязательно создать в папке data папку docs, туда сложить все файлы по которым будет учиться модель.
+Обязательно в папке competition заменить test_queries на свой в таком же формате.
+В pipeline можно поменять запрос к модели, а в make_submission внизу можно выдавать инфу о загрузках чаще.
+В config.yaml все поменять(device и тд) 
