@@ -5,6 +5,7 @@
 5. Список моделей https://docs.google.com/document/d/1iiopSapMioAxetNtvfIIZg2qfXkuHa93LSTPUppK-Ig/edit?usp=sharing
 6. Ссылки на семинары и соревы ЯрикаЛЛМ и из чата на статьи и гитхабы полезные - https://docs.google.com/document/d/1ZnF9OLqML-9Kz6ROLoTwFuPAKnvJY_ur_q41aaj1L6M/edit?usp=sharing
 7. крутая статейка про раг - https://habr.com/ru/articles/893356/
+8. миша репа - https://github.com/Kameeeeeeeee/polnaia_huitisha
 
 ```
 nvidia-smi -i 0
