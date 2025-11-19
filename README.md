@@ -14,3 +14,6 @@ nvidia-smi -i 0
 
 
 https://github.com/DmitryVolovikov/Goal_Dima_2025 Моя репа с 40+ ноутбуками
+
+
+https://www.kaggle.com/code/dmitryvolovikov/just-for-tabular-data для табличных данных 
